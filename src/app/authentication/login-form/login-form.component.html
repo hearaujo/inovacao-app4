@@ -1,0 +1,65 @@
+<main class="main">
+  <mat-card fxFlex.xs="96vw" fxFlex.sm="80vw" fxFlex.md="64vw" fxFlex.lg="48vw">
+    <mat-card-header>
+      <div mat-card-avatar><mat-icon>spa</mat-icon></div>
+      <mat-card-title>APP - Projeto Inovação</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="formLogin" (ngSubmit)="submitFormLogin()">
+        <section>
+          <mat-form-field fxFlex="100%">
+            <input
+              matInput
+              type="email"
+              required="true"
+              placeholder="Informe o e-mail"
+              formControlName="eMail" />
+            
+            <mat-error>O e-mail informado é inválido.</mat-error>
+          </mat-form-field>
+        </section>
+
+        <section>
+          <mat-form-field fxFlex="100%">
+            <input
+              matInput
+              #input_password
+              type="password"
+              required="true"
+              placeholder="Informe sua senha"
+              formControlName="password" />
+
+            <button
+              type="button"
+              matSuffix
+              mat-icon-button
+              (click)="togglePasswordVisibility(input_password)">
+              <mat-icon>{{ input_password?.type === 'password' ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+
+            <mat-error>A senha informada é inválida.</mat-error>
+          </mat-form-field>
+        </section>
+
+        <section fxLayout="row wrap" fxLayoutAlign="end" fxLayoutGap="15px">
+          <p (click)="esqueciMinhaSenha()" style="margin: 0px; padding-right: 5px;">Esqueci minha senha</p>
+          <app-come-back-button (comeBackEvent)="comeBack()"></app-come-back-button>
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            [disabled]="formLogin?.invalid" cdkFocusInitial>
+              <mat-icon>lock</mat-icon>
+              Acessar sistema
+          </button>
+        </section>
+      </form>
+    </mat-card-content>
+    projetoinovacaoapp@gmail.com
+666666
+  </mat-card>
+
+</main>
+
+<app-footer></app-footer>

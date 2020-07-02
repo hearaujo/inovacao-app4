@@ -1,0 +1,26 @@
+<section fxLayout="column">
+  <mat-toolbar fxLayout="row" color="primary" class="toolbar">
+    <section fxFlex="25%" fxFlex.sm="20%" fxFlex.md="20%" fxFlex.lg="20%">
+
+      <a mat-icon-button routerLink="/dashboard"><mat-icon>home</mat-icon></a>
+    </section>
+    
+    <section fxFlex="50%" fxFlex.sm="60%" fxFlex.md="60%" fxFlex.lg="60%" fxLayoutAlign="center">
+      <h3>Projeto Inovação</h3>
+    </section>
+    
+    <section fxFlex="25%" fxFlex.sm="20%" fxFlex.md="20%" fxFlex.lg="20%" fxLayoutAlign="end">
+      <button mat-icon-button (click)="logout(sidenav)">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </section>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxLayout="row">
+    <mat-sidenav-content>
+
+      <ng-content></ng-content>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</section>

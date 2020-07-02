@@ -1,0 +1,75 @@
+<app-layout>
+  <main class="main" fxFlex="100%">
+
+    <section fxLayout="column">
+      <section fxFlex.xs="100%">
+        <form [formGroup]="formMovimentacaoInformacoes" >
+          <mat-card>
+           
+            <section fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap.sm="4px" fxLayoutGap.md="4px" fxLayoutGap.lg="4px">
+              <mat-form-field appearance="outline" fxFlex="100%" fxFlex.sm="50%" fxFlex.md="50%" fxFlex.lg="50%">
+                <mat-label>Data</mat-label>
+                <input matInput [matDatepicker]="picker"
+                       [formControl]="data">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </section>
+
+            <section>
+              <!-- <div mat-card-avatar style="  margin-block-end: 10px; margin-top: -10px;"><mat-icon>spa</mat-icon></div> -->
+              <p class="card-title-txt">para:</p>
+            </section>
+
+            <section fxLayout="row" fxLayout.xs="row wrap" fxLayoutGap.sm="4px" fxLayoutGap.md="4px" fxLayoutGap.lg="4px">
+              <mat-form-field appearance="outline" fxFlex="100%" fxFlex.sm="50%" fxFlex.md="50%" fxFlex.lg="50%">
+                <mat-label>Identificacao</mat-label>
+                <input
+                matInput
+                type="text"
+                minlength="3"
+                maxlength="40"
+                required="true"
+                placeholder="Identificação"
+                formControlName="identificacao">
+              </mat-form-field>   
+              
+              <mat-form-field appearance="outline" fxFlex="100%" fxFlex.sm="50%" fxFlex.md="50%" fxFlex.lg="50%">
+                <mat-label>Quandidade de Pessoas</mat-label>
+                <input
+                matInput
+                type="text"
+                maxlength="5"
+                placeholder="Quantidade"
+                formControlName="qtdPessoas">
+              </mat-form-field>
+            </section>
+
+            <section fxLayout="row" fxLayout="column">
+              <mat-form-field fxFlex="100%" appearance="outline">
+                <mat-label>Observação</mat-label>
+                <textarea matInput formControlName="obs" style="height: 70px;"></textarea>
+              </mat-form-field>
+            </section>       
+          
+            <mat-card-content>
+              <section fxLayout="row" fxLayoutAlign="end" fxLayoutGap="4px">
+                <button
+                  type="submit"
+                  mat-raised-button
+                  color="primary"
+                  [disabled]="(!formMovimentacaoInformacoes.valid)"
+                  (click)="submitFormMovimentacao()">
+                    <mat-icon>done_all</mat-icon>
+                    Salvar
+                </button>
+              </section>
+            </mat-card-content>
+          </mat-card>
+        </form>
+      </section>
+    </section>
+  </main>
+</app-layout>
+
+<app-footer></app-footer>

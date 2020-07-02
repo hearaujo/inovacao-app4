@@ -1,0 +1,47 @@
+.toolbar {
+  height: 50px;
+  background-color: #355993;
+}
+
+.sidenavItem {
+  color: white;
+  background-color: transparent;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.sidenavItem:hover {
+  background-color: #a15c69;
+  transition: background-color 0.25s ease-in-out;
+}
+
+mat-sidenav-container {
+  height: 100%;
+  width: 100%;
+}
+
+mat-sidenav-content {
+  height: 100%;
+  width: 100%;
+}
+
+mat-sidenav {
+  height: 100%;
+  min-width: 260px;
+  max-width: 100%;
+  background-color: #355993;
+}
+
+
+
+
+@media screen and (min-width: 900px) {
+  .toolbar {
+      padding: 0px 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .toolbar {
+      padding: 0px 40px;
+  }
+}
