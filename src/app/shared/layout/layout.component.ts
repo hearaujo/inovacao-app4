@@ -18,6 +18,8 @@ import { AuthenticationService } from '../../authentication/authentication.servi
 })
 export class LayoutComponent implements OnInit, OnDestroy {
 
+  public opened = true; //inicializar aberto
+  public mode="side"//over para celualr
   private end: Subject<boolean> = new Subject();
 
   @Input() public sidenavItems: SidenavItem[] = [];
@@ -36,12 +38,12 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
 
   public goTo(sidenavItem: SidenavItem, sidenav: MatSidenav): void {
-    sidenav.close();
     this.router.navigate([sidenavItem.route]);
+    sidenav.close();
   }
 
   public logout(sidenav: MatSidenav): void {
-    sidenav.close();
     this.authenticationService.logout();
+    sidenav.close();
   }
 }
