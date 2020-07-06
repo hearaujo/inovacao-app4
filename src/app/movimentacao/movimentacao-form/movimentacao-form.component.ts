@@ -8,6 +8,10 @@ import { Movimentacao } from '../movimentacao.model'
 import { MovimentacaoService } from '../movimentacao.service'
 
 
+import { SidenavItem } from '../../shared/model/sidenav-item.model';
+import { SidenavItemFactory } from '../../shared/factory/sidenav-item.factory';
+
+
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertDialogComponent } from 'src/app/shared/alert-dialog/alert-dialog.component';
@@ -21,6 +25,7 @@ export class MovimentacaoFormComponent implements OnInit, OnDestroy {
 
   private end: Subject<boolean> = new Subject();
 
+  public sidenavItems: SidenavItem[] = [];
 
   public movimentacao: Movimentacao = {
     campos: {
@@ -51,6 +56,7 @@ export class MovimentacaoFormComponent implements OnInit, OnDestroy {
     : null;
 
     if (usuario) {
+      this.sidenavItems = SidenavItemFactory.buildSidenav();
       this.buildFormMovimentacao();       
     }
    }

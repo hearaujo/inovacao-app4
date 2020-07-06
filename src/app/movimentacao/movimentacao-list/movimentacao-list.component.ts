@@ -12,6 +12,10 @@ import { takeUntil} from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertDialogComponent } from 'src/app/shared/alert-dialog/alert-dialog.component';
 
+//Menu lateral
+import { SidenavItem } from '../../shared/model/sidenav-item.model';
+import { SidenavItemFactory } from '../../shared/factory/sidenav-item.factory';
+
 
 @Component({
   selector: 'app-movimentacao-list',
@@ -23,6 +27,7 @@ export class MovimentacaoListComponent implements OnInit, OnDestroy {
   //para garantir a finalização das requisições do banco quando a página é fechada
   private end: Subject<boolean> = new Subject();
 
+  public sidenavItems: SidenavItem[] = [];
   //variaveis
   public movimentacoes: Movimentacao[]
   public usuario: Usuario;
@@ -39,6 +44,7 @@ export class MovimentacaoListComponent implements OnInit, OnDestroy {
     : null;
 
     if (this.usuario) {
+      this.sidenavItems = SidenavItemFactory.buildSidenav();
       this.iniciandoListaMovimentacoes();
     } else {
       this.authenticationService.logout();

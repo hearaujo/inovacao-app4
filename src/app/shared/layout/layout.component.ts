@@ -5,6 +5,9 @@ import { Subject } from 'rxjs';
 /**Angular Material. */
 import { MatSidenav } from '@angular/material/sidenav';
 
+/**Models.*/
+import { SidenavItem } from '../model/sidenav-item.model';
+
 /**Services.*/
 import { AuthenticationService } from '../../authentication/authentication.service';
 
@@ -16,6 +19,8 @@ import { AuthenticationService } from '../../authentication/authentication.servi
 export class LayoutComponent implements OnInit, OnDestroy {
 
   private end: Subject<boolean> = new Subject();
+
+  @Input() public sidenavItems: SidenavItem[] = [];
   
   constructor(
     private authenticationService: AuthenticationService,
@@ -30,7 +35,13 @@ export class LayoutComponent implements OnInit, OnDestroy {
   }
 
 
-  public logout(): void {
+  public goTo(sidenavItem: SidenavItem, sidenav: MatSidenav): void {
+    sidenav.close();
+    this.router.navigate([sidenavItem.route]);
+  }
+
+  public logout(sidenav: MatSidenav): void {
+    sidenav.close();
     this.authenticationService.logout();
   }
 }
