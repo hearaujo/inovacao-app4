@@ -4,8 +4,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f1f1f1;
 }
 
 .comeBackButtom {
   color: #6200ee;
+}
+
+
+.header {
+  height: 97px;
+  width: 100%;
+  padding: 10px 32px;
+  border-bottom: 1px solid gray;
+  background: white;
+}
+
+.titulo-header {
+  float: right;
+    font-size: 20px;
+    margin-top: 20px;
 }
