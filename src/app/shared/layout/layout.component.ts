@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
 /**Angular Material. */
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenav, MatDrawer } from '@angular/material/sidenav';
 
 /**Models.*/
 import { SidenavItem } from '../model/sidenav-item.model';
@@ -37,12 +37,12 @@ export class LayoutComponent implements OnInit, OnDestroy {
   }
 
 
-  public goTo(sidenavItem: SidenavItem, sidenav: MatSidenav): void {
+  public goTo(sidenavItem: SidenavItem, sidenav?: MatDrawer): void {
     this.router.navigate([sidenavItem.route]);
     //sidenav.close();
   }
 
-  public logout(sidenav: MatSidenav): void {
+  public logout(sidenav: MatDrawer): void {
     this.authenticationService.logout();
     sidenav.close();
   }
