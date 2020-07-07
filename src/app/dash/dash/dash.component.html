@@ -2,35 +2,9 @@
   [sidenavItems]="sidenavItems">
   <main class="main">
     <section fxFlex="100%" fxLayout="column">
+      <h3>/Dashboard</h3>
       <h3 style="padding-left: 20px; margin-top: 10px;">Olá {{usuario.nome}}</h3>
-      <section fxFlex="100%" fxLayout="column" fxLayoutAlign="start center">
-
-        <section fxLayout="row" fxLayout.lt-md="row wrap"  fxLayoutGap="0px" fxLayoutGap.sm="20px" fxLayoutGap.md="20px" fxLayoutGap.lg="20px" class="actionsSection" fxLayoutAlign="center">
-         
-          <button mat-raised-button color="warn" routerLink="/movimentacao" class="button-routers">
-              <mat-icon>add_circle_outline</mat-icon>
-              Nova Movimentação
-          </button>
-         
-          <button mat-raised-button routerLink="/movimentacao/relatorio" class="button-routers">
-              <mat-icon>list</mat-icon>
-              Lista de Movimentacoes
-          </button>
-        </section>
-
-        <section fxLayout="row" fxLayout.lt-md="row wrap"  fxLayoutGap="0px" fxLayoutGap.sm="20px" fxLayoutGap.md="20px" fxLayoutGap.lg="20px" class="actionsSection" fxLayoutAlign="center">
-         
-          <button mat-stroked-button color="primary" routerLink="/movimentacao" class="button-routers">
-              <mat-icon>add_circle_outline</mat-icon>
-              Nova Movimentação
-          </button>
-         
-          <button mat-flat-button color="accent" routerLink="/movimentacao/relatorio" class="button-routers">
-              <mat-icon>list</mat-icon>
-              Lista de Movimentacoes
-          </button>
-        </section>
-      </section>
+    
     </section>  
   </main>
 </app-layout>

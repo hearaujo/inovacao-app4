@@ -5,8 +5,8 @@ import { RelatorioListComponent } from './relatorio-list/relatorio-list.componen
 
 
 const relatorioRoutes: Routes = [
-  { path: 'relatorio', component: RelatorioListComponent},
-  { path: '**', redirectTo: '/relatorio/novo'}
+  { path: '', component: RelatorioListComponent},
+  { path: '**', redirectTo: '/relatorio'}
 ];
 
 @NgModule({
