@@ -3,18 +3,18 @@ import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } fr
 
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
-import { Movimentacao } from './movimentacao.model';
+import { Nf } from './nf.model';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class MovimentacaoService {
+export class NfService {
 
-  private movimentacaoCollection: AngularFirestoreCollection<Movimentacao>;
+  private movimentacaoCollection: AngularFirestoreCollection<Nf>;
 
   constructor(protected db: AngularFirestore) {
-      this.movimentacaoCollection = db.collection<Movimentacao>('movimentacao');//definindo o nome da coleção no Firebase
+      this.movimentacaoCollection = db.collection<Nf>('teste');//definindo o nome da coleção no Firebase
     }
 
     get timestamp() {
@@ -22,24 +22,24 @@ export class MovimentacaoService {
     }
 
     //salvando no banco
-    addMovimentacao(movimentacao: Movimentacao) {
+    addNf(nf: Nf) {
       return this.movimentacaoCollection.add({
-        ...movimentacao,
+        ...nf,
         createdAt: this.timestamp
       })
       .then(e => {
-        this.updateUidMovimentacao(e.id);
+        this.updateUidNf(e.id);
         return e.id})
       .catch(er => console.error('erro no slavar gestor', er));
     }
 
     //para adicionar o uid no documento (Opcional, somente para boas práticas)
-    private updateUidMovimentacao(uid: string){
+    private updateUidNf(uid: string){
       return this.movimentacaoCollection.doc(uid).update({"uid" : uid});
     }
 
     //get de um documento específico da coleção
-    public getMovimentacao(id: string): Observable<any> {
+    public getNf(id: string): Observable<any> {
       return this.movimentacaoCollection.doc<any>(id).valueChanges();
     }
 

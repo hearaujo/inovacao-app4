@@ -5,14 +5,13 @@ import { registerLocaleData } from '@angular/common';
 import localeBr from '@angular/common/locales/pt';
 
 /**Routes.*/
-import { MovimentacaoRoutingModule } from './movimentacao-routing.module';
+import { IptuRoutingModule } from './iptu-routing.module';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 /**Modules.*/
 import { SharedModule } from '../shared/shared.module';
-import { MovimentacaoFormComponent } from './movimentacao-form/movimentacao-form.component';
+import { IptuFormComponent } from './iptu-form/iptu-form.component';
 import { AlertDialogComponent } from '../shared/alert-dialog/alert-dialog.component';
-import { MovimentacaoListComponent } from './movimentacao-list/movimentacao-list.component';
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -26,7 +25,7 @@ registerLocaleData(localeBr, 'pt')
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MovimentacaoRoutingModule,
+    IptuRoutingModule,
     SharedModule,
     MatAutocompleteModule,
     MatDatepickerModule,
@@ -35,11 +34,10 @@ registerLocaleData(localeBr, 'pt')
     MatInputModule
   ],
   declarations: [
-    MovimentacaoFormComponent,
-    MovimentacaoListComponent
+    IptuFormComponent
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' }
   ]
 })
-export class MovimentacaoModule { }
+export class IptuModule { }

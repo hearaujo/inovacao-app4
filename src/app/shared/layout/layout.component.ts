@@ -39,7 +39,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
 
   public goTo(sidenavItem: SidenavItem, sidenav: MatSidenav): void {
     this.router.navigate([sidenavItem.route]);
-    sidenav.close();
+    //sidenav.close();
   }
 
   public logout(sidenav: MatSidenav): void {

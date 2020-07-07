@@ -1,4 +1,4 @@
-export interface Movimentacao {
+export interface Relatorio {
   uid?: any; // código gerado pelo Firebase
   campos: {
     data?: any;

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MovimentacaoListComponent } from './movimentacao-list.component';
+import { NfFormComponent } from './nf-form.component';
 
-describe('SolicitacaoListComponent', () => {
-  let component: MovimentacaoListComponent;
-  let fixture: ComponentFixture<MovimentacaoListComponent>;
+describe('NfFormComponent', () => {
+  let component: NfFormComponent;
+  let fixture: ComponentFixture<NfFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovimentacaoListComponent ]
+      declarations: [ NfFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MovimentacaoListComponent);
+    fixture = TestBed.createComponent(NfFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -4,8 +4,8 @@ import { Subject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../authentication/authentication.service';
 import { Usuario } from '../../shared/model/usuario.model'
-import { Movimentacao } from '../movimentacao.model'
-import { MovimentacaoService } from '../movimentacao.service'
+import { Relatorio } from '../relatorio.model'
+import { RelatorioService } from '../relatorio.service'
 
 
 import { takeUntil} from 'rxjs/operators';
@@ -18,23 +18,23 @@ import { SidenavItemFactory } from '../../shared/factory/sidenav-item.factory';
 
 
 @Component({
-  selector: 'app-movimentacao-list',
-  templateUrl: './movimentacao-list.component.html',
-  styleUrls: ['./movimentacao-list.component.css']
+  selector: 'app-relatorio-list',
+  templateUrl: './relatorio-list.component.html',
+  styleUrls: ['./relatorio-list.component.css']
 })
-export class MovimentacaoListComponent implements OnInit, OnDestroy {
+export class RelatorioListComponent implements OnInit, OnDestroy {
 
   //para garantir a finalização das requisições do banco quando a página é fechada
   private end: Subject<boolean> = new Subject();
 
   public sidenavItems: SidenavItem[] = [];
   //variaveis
-  public movimentacoes: Movimentacao[]
+  public movimentacoes: Relatorio[]
   public usuario: Usuario;
 
   //construtor só é executado uma vez no carregamento da página
   constructor(private router: Router,
-    private movimentacaoService: MovimentacaoService,
+    private relatorioService: RelatorioService,
     private authenticationService: AuthenticationService) { }
 
   //ngOnInit é executado constantemente
@@ -54,7 +54,7 @@ export class MovimentacaoListComponent implements OnInit, OnDestroy {
 
    //buscando informações no banco de dados
    iniciandoListaMovimentacoes(){
-    this.movimentacaoService.getMovimentacoes().pipe(takeUntil(this.end)).subscribe(res => {
+    this.relatorioService.getMovimentacoes().pipe(takeUntil(this.end)).subscribe(res => {
       this.movimentacoes = res.map(e => {
         return {
           uid: e.payload.doc.id,
